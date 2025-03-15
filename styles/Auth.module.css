@@ -1,0 +1,81 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+
+  .adminTitle {
+    font-size: 36px;
+    font-weight: 600; /* Bold but professional */
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: "Inter", Arial, sans-serif; /* Modern and widely used font */
+    text-transform: none; /* Keeps sentence case */
+    letter-spacing: 1.2px; /* Improves readability */
+    padding: 15px 30px; /* Adds spacing for a polished look */
+    border-radius: 12px; /* Soft rounded corners */
+    color: white; /* Makes the text stand out */
+  
+    /* Elegant Gradient Background */
+    background: linear-gradient(90deg, #003366, #0056b3);
+    display: inline-block; /* Ensures background wraps around text */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+  }
+  
+     
+  
+  
+  .formWrapper {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .inputField {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .button {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+  
+  .toggleLink {
+    margin-top: 10px;
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 14px;
+  }
+  
