@@ -1,81 +1,155 @@
+/* Container for the entire page */
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-  }
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
 
-  .adminTitle {
-    font-size: 36px;
-    font-weight: 600; /* Bold but professional */
-    text-align: center;
-    margin-bottom: 30px;
-    font-family: "Inter", Arial, sans-serif; /* Modern and widely used font */
-    text-transform: none; /* Keeps sentence case */
-    letter-spacing: 1.2px; /* Improves readability */
-    padding: 15px 30px; /* Adds spacing for a polished look */
-    border-radius: 12px; /* Soft rounded corners */
-    color: white; /* Makes the text stand out */
-  
-    /* Elegant Gradient Background */
-    background: linear-gradient(90deg, #003366, #0056b3);
-    display: inline-block; /* Ensures background wraps around text */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
-  }
-  
-     
-  
-  
-  .formWrapper {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-  }
-  
-  .title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: #333;
-  }
-  
-  .inputField {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .button {
-    width: 100%;
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  .button:hover {
-    background-color: #0056b3;
-  }
-  
-  .toggleLink {
-    margin-top: 10px;
-    color: #007bff;
-    cursor: pointer;
-    text-decoration: underline;
-    font-size: 14px;
-  }
-  
+/* Auth Container (for Login/Sign Up) */
+.authContainer {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Sidebar and content for logged-in users */
+.sidebarAndContent {
+  display: flex;
+  width: 100%;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 250px;
+  background-color: #003366;
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.sidebarTitle {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menuItem {
+  font-size: 18px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+.menuItem:hover {
+  background-color: #0056b3;
+}
+
+/* Main content area */
+.mainContent {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #f4f4f4;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+/* Scoped styles for content within the .mainContent class */
+.mainContent h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Table Styles for displaying data */
+.mainContent table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.mainContent th, .mainContent td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+
+.mainContent th {
+  background-color: #f2f2f2;
+}
+
+.mainContent td {
+  background-color: #fff;
+}
+
+
+/* Styling for Login/Sign Up */
+.adminTitle {
+  font-size: 36px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: "Inter", Arial, sans-serif;
+  text-transform: none;
+  letter-spacing: 1.2px;
+  padding: 15px 30px;
+  border-radius: 12px;
+  color: white;
+  background: linear-gradient(90deg, #003366, #0056b3);
+  display: inline-block;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.formWrapper {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.inputField {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.button {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.toggleLink {
+  margin-top: 10px;
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 14px;
+}

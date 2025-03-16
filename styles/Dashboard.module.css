@@ -1,0 +1,65 @@
+.dashboardContainer {
+    max-width: 90%;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .dashboardTitle {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #003366;
+  }
+  
+  .chartContainer {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .percentageText {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* ✅ Table Styles */
+  .evTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .evTable th,
+  .evTable td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .evTable th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .evTable tbody tr:hover {
+    background-color: #ddd;
+  }
+
+  .chartContainer canvas {
+    max-width: 250px !important; /* Reduce chart size */
+    max-height: 250px !important;
+  }
+  

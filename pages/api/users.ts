@@ -7,10 +7,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    const [users]: any = await pool.execute("SELECT id, full_name, email FROM users");
-    res.status(200).json(users);
+    const [users]: any = await pool.execute(`
+      SELECT Id, Label, OrganizationId, IsActive, CognitoId, IsAdmin FROM User
+    `);
+
+    // Convert bit values (IsActive, IsAdmin) to boolean
+    const formattedUsers = users.map((user: any) => ({
+      ...user,
+      IsActive: user.IsActive[0] === 1, // Convert Bit(1) to true/false
+      IsAdmin: user.IsAdmin[0] === 1,
+    }));
+
+    res.status(200).json(formattedUsers);
   } catch (error) {
-    console.error(error);
     res.status(500).json({ message: "Database error", error });
   }
 }

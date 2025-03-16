@@ -1,36 +1,66 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+
+interface User {
+  Id: string;
+  Label: string;
+  OrganizationId: string;
+  IsActive: boolean;
+  IsAdmin: boolean;
+  CognitoId: string;
+}
 
 export default function Users() {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<User[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    axios.get("/api/users")
-      .then(response => setUsers(response.data))
-      .catch(error => console.error("Error fetching users:", error));
+    fetch("/api/users")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch users");
+        return res.json();
+      })
+      .then((data) => {
+        setUsers(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
   }, []);
 
+
+  if (loading) return <p>Loading users...</p>;
+  if (error) return <p>Error: {error}</p>;
+
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
+    <div>
       <h1>User Management</h1>
-      <table border={1} style={{ margin: "0 auto" }}>
+      <table border={1}>
         <thead>
           <tr>
             <th>ID</th>
-            <th>Full Name</th>
-            <th>Email</th>
+            <th>Label</th>
+            <th>Organization ID</th>
+            <th>Is Active</th>
+            <th>Is Admin</th>
+            <th>Cognito ID</th>
           </tr>
         </thead>
         <tbody>
-          {users.map((user: any) => (
-            <tr key={user.id}>
-              <td>{user.id}</td>
-              <td>{user.full_name}</td>
-              <td>{user.email}</td>
+          {users.map((user) => (
+            <tr key={user.Id}>
+              <td>{user.Id}</td>
+              <td>{user.Label}</td>
+              <td>{user.OrganizationId}</td>
+              <td>{user.IsActive ? "Active" : "Inactive"}</td>
+              <td>{user.IsAdmin ? "Admin" : "User"}</td>
+              <td>{user.CognitoId}</td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
   );
-}
+}   
