@@ -1,6 +1,7 @@
 import { useState } from "react";
-import axios from "axios";
 import { useRouter } from "next/router";
+import UserPool from "@/lib/cognito";
+import { CognitoUserAttribute } from "amazon-cognito-identity-js";
 
 export default function Register() {
   const [fullName, setFullName] = useState("");
@@ -9,19 +10,20 @@ export default function Register() {
   const [message, setMessage] = useState("");
   const router = useRouter();
 
-  const handleRegister = async () => {
-    try {
-      const res = await axios.post("/api/auth/register", {
-        fullName,
-        email,
-        password,
-      });
-      if (res.status === 201) {
-        router.push("/");
+  const handleRegister = () => {
+    const attributeList = [
+      new CognitoUserAttribute({ Name: "name", Value: fullName }),
+      new CognitoUserAttribute({ Name: "email", Value: email }),
+    ];
+
+    UserPool.signUp(email, password, attributeList, [], (err, result) => {
+      if (err) {
+        setMessage(err.message || "Error registering user");
+      } else {
+        setMessage("Sign-up successful! Please check your email to confirm.");
+        setTimeout(() => router.push("/"), 2000); // Redirect to login page
       }
-    } catch (error) {
-      setMessage("Error registering user");
-    }
+    });
   };
 
   return (

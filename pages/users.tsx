@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
+import styles from "@/styles/Users.module.css"; // Assuming you're using a CSS module for styling
 
 interface User {
   Id: string;
@@ -30,6 +32,21 @@ export default function Users() {
       });
   }, []);
 
+  const handleDelete = async (userId: string) => {
+    try {
+      await axios.delete(`/api/users/${userId}`);
+      setUsers(users.filter((user) => user.Id !== userId)); // Remove user from UI
+    } catch (error) {
+      console.error("Error deleting user", error);
+      setError("Error deleting user");
+    }
+  };
+
+  const handleUpdate = async (userId: string) => {
+    // You can open a modal or navigate to another page to update the user details
+    // For now, let's log the userId for reference
+    console.log("Updating user with ID:", userId);
+  };
 
   if (loading) return <p>Loading users...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -37,7 +54,7 @@ export default function Users() {
   return (
     <div>
       <h1>User Management</h1>
-      <table border={1}>
+      <table className={styles.userTable}>
         <thead>
           <tr>
             <th>ID</th>
@@ -46,6 +63,7 @@ export default function Users() {
             <th>Is Active</th>
             <th>Is Admin</th>
             <th>Cognito ID</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -57,10 +75,24 @@ export default function Users() {
               <td>{user.IsActive ? "Active" : "Inactive"}</td>
               <td>{user.IsAdmin ? "Admin" : "User"}</td>
               <td>{user.CognitoId}</td>
+              <td>
+                <button
+                  onClick={() => handleUpdate(user.Id)}
+                  className={styles.updateButton}
+                >
+                  Update
+                </button>
+                <button
+                  onClick={() => handleDelete(user.Id)}
+                  className={styles.deleteButton}
+                >
+                  Delete
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
   );
-}   
+}        

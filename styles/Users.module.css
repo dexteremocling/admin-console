@@ -1,0 +1,67 @@
+.userTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .userTable th,
+  .userTable td {
+    padding: 10px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .userTable th {
+    background-color: #f4f4f4;
+  }
+  
+  .userTable tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .userTable tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+ 
+  .updateButton {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    margin-right: 5px;
+    border-radius: 5px;
+  }
+  
+  .deleteButton {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .updateButton:hover {
+    background-color: #45a049;
+  }
+  
+  .deleteButton:hover {
+    background-color: #e53935;
+  }
+
+/* Users.module.css */
+
+/* Local class for button */
+.button {
+    padding: 6px 12px;
+    font-size: 14px;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .button:hover {
+    background-color: #005bb5;
+  }
+  
