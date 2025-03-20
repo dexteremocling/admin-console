@@ -4,16 +4,20 @@
   min-height: 100vh;
   justify-content: center;
   align-items: center;
+  width: 100%; /* Keep full viewport width */
 }
 
 /* Auth Container (for Login/Sign Up) */
 .authContainer {
   width: 100%;
-  max-width: 600px;
+  max-width: 1200px; /* Doubled from 600px */
   padding: 20px;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Ensures inner elements stay centered */
 }
 
 /* Sidebar and content for logged-in users */
@@ -92,7 +96,6 @@
   background-color: #fff;
 }
 
-
 /* Styling for Login/Sign Up */
 .adminTitle {
   font-size: 36px;
@@ -116,12 +119,19 @@
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 400px;
+  max-width: 800px; /* Doubled from 400px */
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center input fields */
 }
 
+
+
+/* Input Field Styling */
 .inputField {
   width: 100%;
+  max-width: 400px; /* Prevent excessive stretching */
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ccc;
@@ -129,9 +139,11 @@
   font-size: 16px;
 }
 
+/* Button Styling */
 .button {
-  width: 100%;
-  background-color: #007bff;
+  width: 100%; 
+  max-width: 400px; /* Prevent excessive stretching */
+  background-color: #39C739;
   color: white;
   padding: 10px;
   font-size: 16px;
@@ -143,7 +155,7 @@
 }
 
 .button:hover {
-  background-color: #0056b3;
+  background-color: #0B990B;
 }
 
 .toggleLink {
@@ -152,4 +164,18 @@
   cursor: pointer;
   text-decoration: underline;
   font-size: 14px;
+}
+
+/* Logo Styling */
+.logo {
+  display: block;
+  margin: 0 auto 20px auto; /* Center image and add spacing below */
+  max-width: 200px; /* Adjust as needed */
+  height: auto;
+}
+
+/* Centered Login Heading */
+.title {
+  text-align: center;
+  width: 100%;
 }

@@ -37,9 +37,15 @@ const Home = () => {
     <div className={styles.container}>
       {!isLoggedIn ? (
         <div className={styles.authContainer}>
-          <h1 className={styles.adminTitle}>Administration Console</h1>
+          {/* Replaced H1 with an Image */}
+          <img src="/images/evcare_logo.png" alt="EVCare Logo" className={styles.logo} />
+          
           <div className={styles.formWrapper}>
-            <h2 className={styles.title}>Login</h2>
+            {/* Centered Login Title */}
+            <h2 className={styles.title} style={{ textAlign: "center", width: "100%" }}>
+              Login
+            </h2>
+            
             <form onSubmit={handleLogin}>
               <input
                 type="email"
@@ -62,14 +68,19 @@ const Home = () => {
               </button>
             </form>
             <p style={{ color: "red" }}>{message}</p>
-            <p>
-              Don't have an account? <a href="/register">Sign Up</a>
+
+            {/* Centered Signup Text */}
+            <p style={{ textAlign: "center", width: "100%", margin: "8px 0" }}>
+              Don't have an account? <a href="/register" style={{ fontWeight: "bold" }}>Sign Up</a>
             </p>
+
+            {/* Added Volterras Logo */}
+            <img src="/images/volterras_logo.png" alt="Volterras Logo" className={styles.logo} />
           </div>
         </div>
       ) : (
         <div>
-          <h2>Welcome to EVCare Admin Panel</h2>
+          <h2>Welcome to EVCare Administration Console</h2>
         </div>
       )}
     </div>
