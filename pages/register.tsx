@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import UserPool from "@/lib/cognito";
 import { CognitoUserAttribute } from "amazon-cognito-identity-js";
 import styles from "@/styles/Auth.module.css";
-import React from "react";
 
 export default function Register() {
   const [fullName, setFullName] = useState("");
@@ -18,12 +17,12 @@ export default function Register() {
       new CognitoUserAttribute({ Name: "email", Value: email }),
     ];
 
-    UserPool.signUp(email, password, attributeList, [], (err, result) => {
+    UserPool.signUp(email, password, attributeList, [], (err) => {
       if (err) {
         setMessage(err.message || "Error registering user");
       } else {
         setMessage("Sign-up successful! Please check your email to confirm.");
-        setTimeout(() => router.push("/confirm"), 2000); // Redirect to confirm page
+        setTimeout(() => router.push("/confirm"), 2000); // Redirect to confirmation page
       }
     });
   };
@@ -31,11 +30,9 @@ export default function Register() {
   return (
     <div className={styles.container}>
       <div className={styles.authContainer}>
-        {/* Replaced H1 with an Image */}
         <img src="/images/evcare_logo.png" alt="EVCare Logo" className={styles.logo} />
         
         <div className={styles.formWrapper}>
-          {/* Centered Register Title */}
           <h2 className={styles.title} style={{ textAlign: "center", width: "100%" }}>
             Sign Up
           </h2>
@@ -66,12 +63,10 @@ export default function Register() {
           </button>
           <p style={{ color: "red" }}>{message}</p>
 
-          {/* Centered Login Text */}
           <p style={{ textAlign: "center", width: "100%", margin: "8px 0" }}>
             Already have an account? <a href="/" style={{ fontWeight: "bold" }}>Login here</a>
           </p>
 
-          {/* Added Volterras Logo */}
           <img src="/images/volterras_logo.png" alt="Volterras Logo" className={styles.logo} />
         </div>
       </div>

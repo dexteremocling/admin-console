@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CognitoUser } from "amazon-cognito-identity-js";
 import UserPool from "@/lib/cognito";
+import styles from "@/styles/Auth.module.css";
 
 export default function ResendConfirmation() {
   const [email, setEmail] = useState("");
@@ -22,17 +23,21 @@ export default function ResendConfirmation() {
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Resend Confirmation Code</h1>
-      <input
-        type="email"
-        placeholder="Email Address"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <br />
-      <button onClick={handleResend}>Resend Code</button>
-      <p style={{ color: "red" }}>{message}</p>
+    <div className={styles.container}>
+      <div className={styles.authContainer}>
+        <h2 className={styles.title}>Resend Confirmation Code</h2>
+        <input
+          type="email"
+          placeholder="Email Address"
+          className={styles.inputField}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <button onClick={handleResend} className={styles.button}>
+          Resend Code
+        </button>
+        <p style={{ color: "red" }}>{message}</p>
+      </div>
     </div>
   );
 }
