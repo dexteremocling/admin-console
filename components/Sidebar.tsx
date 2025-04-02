@@ -14,7 +14,10 @@ const Sidebar = ({ onLogout }: { onLogout: () => void }) => {
           <a href="/users" className={styles.navLink}>User Management</a>
         </li>
         <li className={styles.navItem}>
-          <a href="/dashboard" className={styles.navLink}>EV Dashboard</a>
+          <a href="/fleet" className={styles.navLink}>Fleet Management</a>
+        </li>
+        <li className={styles.navItem}>
+          <a href="/dashboard" className={styles.navLink}>EV Battery Dashboard</a>
         </li>
         <li className={styles.navItem}>
           <button className={styles.logoutButton} onClick={onLogout}>

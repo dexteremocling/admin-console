@@ -1,67 +1,64 @@
+.userContainer {
+  padding: 20px;
+  margin-left: 250px; /* Align content with the sidebar */
+}
+
 .userTable {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .userTable th,
-  .userTable td {
-    padding: 10px 15px;
-    text-align: left;
-    border: 1px solid #ddd;
-  }
-  
-  .userTable th {
-    background-color: #f4f4f4;
-  }
-  
-  .userTable tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .userTable tbody tr:hover {
-    background-color: #f1f1f1;
-  }
-  
- 
-  .updateButton {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    margin-right: 5px;
-    border-radius: 5px;
-  }
-  
-  .deleteButton {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 5px;
-  }
-  
-  .updateButton:hover {
-    background-color: #45a049;
-  }
-  
-  .deleteButton:hover {
-    background-color: #e53935;
-  }
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
 
-/* Users.module.css */
+.userTable th,
+.userTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
 
-/* Local class for button */
-.button {
-    padding: 6px 12px;
-    font-size: 14px;
-    background-color: #0070f3;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  .button:hover {
-    background-color: #005bb5;
-  }
-  
+.userTable th {
+  background-color: #007bff;
+  color: white;
+}
+
+.addUserButton {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 15px; /* Space between button and table */
+}
+
+.addUserButton:hover {
+  background-color: #218838;
+}
+
+.updateButton {
+  background-color: #ffc107;
+  color: black;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.updateButton:hover {
+  background-color: #e0a800;
+}
+
+.deleteButton {
+  background-color: #dc3545;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  background-color: #c82333;
+}

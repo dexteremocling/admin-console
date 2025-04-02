@@ -99,18 +99,18 @@ export default function HomePage() {
         {/* Battery List */}
         <div className={styles.section} style={{ width: "200px", textAlign: "left", overflowY: "auto", maxHeight: "500px" }}>
           <h2>Battery List</h2>
-          <table style={{ width: "100%", borderCollapse: "collapse", color: "black" }}>
+          <table className={styles.batteryTable}>
             <thead>
-              <tr style={{ backgroundColor: "#ddd" }}>
-                <th style={{ padding: "10px", border: "1px solid black" }}>Battery Number</th>
+              <tr>
+                <th>Battery Number</th>
               </tr>
             </thead>
             <tbody>
               {batteries.map((battery) => (
                 <tr key={battery.PowerUnitId}>
-                  <td style={{ padding: "10px", border: "1px solid black" }}>
+                  <td>
                     <button
-                      style={{ width: "100%", padding: "8px", cursor: "pointer", backgroundColor: "#f0f0f0", border: "none" }}
+                      className={styles.batteryButton}
                       onClick={() => handleBatterySelect(battery.PowerUnitId, true)}
                     >
                       {battery.PowerUnitId}
@@ -146,7 +146,7 @@ export default function HomePage() {
                     values: [displayedBattery.BatteryCycleCount, displayedBattery.OEMMaxCycleCount - displayedBattery.BatteryCycleCount],
                     labels: ["Used", "Remaining"],
                     type: "pie",
-                    marker: { colors: ["#ff6666", "#66b3ff"] },
+                    marker: { colors: ["rgb(255, 217, 0)", "rgba(54, 228, 19, 0.99)"] },
                   },
                 ]}
                 layout={{ title: "Cycle Usage", showlegend: true }}

@@ -48,8 +48,9 @@ export default function Users() {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div>
+    <div className={styles.userContainer}>
       <h1>User Management</h1>
+      
       <table className={styles.userTable}>
         <thead>
           <tr>
@@ -62,7 +63,7 @@ export default function Users() {
           {users.map((user) => (
             <tr key={user.Username}>
               <td>{user.Username}</td>
-              <td>{user.Attributes.email}</td> {/* Assuming email is one of the attributes */}
+              <td>{user.Attributes.email}</td>
               <td>
                 <button
                   onClick={() => handleUpdate(user.Username)}

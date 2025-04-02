@@ -63,7 +63,7 @@ export default function EVDashboard() {
     datasets: [
       {
         data: [evData.BatteryCycleCount, evData.OEMMaxCycleCount - evData.BatteryCycleCount],
-        backgroundColor: ["rgba(40, 167, 69, 0.6)", "rgba(0, 123, 255, 0.6)"],
+        backgroundColor: ["rgb(255, 217, 0)", "rgba(40, 167, 69, 0.6)"],
       },
     ],
   };
@@ -73,7 +73,7 @@ export default function EVDashboard() {
 
   return (
     <div className={styles.dashboardContainer}>
-      <h2 className={styles.dashboardTitle}>Electric Vehicle Dashboard</h2>
+      <h2 className={styles.dashboardTitle}>Electric Vehicle Battery Dashboard</h2>
 
       {/* ✅ Pie Chart: BatteryCycleCount vs. OEMMaxCycleCount */}
       <div className={styles.chartContainer}>
