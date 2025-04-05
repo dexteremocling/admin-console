@@ -12,6 +12,10 @@ export default function Register() {
   const router = useRouter();
 
   const handleRegister = () => {
+    if (!fullName || !email || !password) {
+      setMessage("Please fill out all the fields.");
+      return;
+    }
     const attributeList = [
       new CognitoUserAttribute({ Name: "name", Value: fullName }),
       new CognitoUserAttribute({ Name: "email", Value: email }),
@@ -43,6 +47,7 @@ export default function Register() {
             className={styles.inputField}
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
+            required
           />
           <input
             type="email"
@@ -50,6 +55,7 @@ export default function Register() {
             className={styles.inputField}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
           <input
             type="password"
@@ -57,6 +63,7 @@ export default function Register() {
             className={styles.inputField}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
           <button onClick={handleRegister} className={styles.button}>
             Register

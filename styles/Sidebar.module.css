@@ -4,10 +4,23 @@
   left: 0;
   width: 250px;
   height: 100vh;
-  background-color: #007bff;
-  color: white;
+  background-color: white;
+  color: #333;
   padding-top: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.welcomeMessage {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 18px;
+  color: #333;
 }
 
 .navList {
@@ -21,29 +34,53 @@
 }
 
 .navLink {
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  color: white;
+  color: #333;
   font-size: 18px;
   font-weight: bold;
-  display: block;
   transition: background 0.3s ease;
+  padding: 10px 0;
 }
 
 .navLink:hover {
-  background-color: #4f4f9e;
+  background-color: #e0e0e0;
+  color: #007bff;
+}
+
+.navIcon {
+  margin-right: 10px;
+}
+
+.logoutContainer {
+  position: absolute;
+  bottom: 100px;
+  width: 100%;
 }
 
 .logoutButton {
   width: 100%;
   padding: 12px;
-  background-color: #b6493b;;
+  background-color: #fd3535;
   border: none;
   color: white;
   font-size: 18px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
+  border-radius: 5px; /* Add border radius for a rounded effect */
+  font-weight: bold;
 }
 
 .logoutButton:hover {
-  background-color: #a03f19;
+  background-color: #0056b3;
+  transform: scale(1.05); /* Slight scaling effect on hover */
+}
+
+.logoutButton:focus {
+  outline: none;
+}
+
+.logoutButton:active {
+  transform: scale(1);
 }

@@ -26,6 +26,7 @@ interface BatteryDetails {
 export default function HomePage() {
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userName, setUserName] = useState<string>(""); // Store user name
   const [batteries, setBatteries] = useState<Battery[]>([]);
   const [selectedBattery, setSelectedBattery] = useState<BatteryDetails | null>(null);
   const [hoverBattery, setHoverBattery] = useState<BatteryDetails | null>(null);
@@ -37,6 +38,13 @@ export default function HomePage() {
       user.getSession((err: Error | null, session: CognitoUserSession | null) => {
         if (!err && session && session.isValid()) {
           setIsLoggedIn(true);
+          // Fetch user attributes (full name)
+          user.getUserAttributes((err, attributes) => {
+            if (!err && attributes) {
+              const fullName = attributes.find(attr => attr.Name === "name")?.Value || "User";
+              setUserName(fullName);
+            }
+          });
         } else {
           router.push("/");
         }
@@ -93,7 +101,9 @@ export default function HomePage() {
 
   return isLoggedIn ? (
     <div className={styles.container}>
-      <Sidebar onLogout={() => UserPool.getCurrentUser()?.signOut() || router.push("/")} />
+      {/* ✅ Pass userName to Sidebar */}
+      <Sidebar onLogout={() => UserPool.getCurrentUser()?.signOut() || router.push("/")} userName={userName} />
+      
       <div className={styles.main} style={{ display: "flex", flexDirection: "row", gap: "20px", alignItems: "flex-start" }}>
         
         {/* Battery List */}

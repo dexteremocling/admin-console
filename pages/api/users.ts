@@ -40,6 +40,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     res.status(200).json(formattedUsers);
   } catch (error) {
     console.error("Error fetching users from Cognito:", error);
-    res.status(500).json({ message: "Error fetching users from Cognito", error: error instanceof Error ? error.message : error });
+    res.status(500).json({ message: "Failed to fetch users from Cognito", error: (error as Error).message });
   }
 }

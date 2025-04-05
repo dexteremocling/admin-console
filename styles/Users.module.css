@@ -62,3 +62,56 @@
 .deleteButton:hover {
   background-color: #c82333;
 }
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalContent {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+}
+
+.inputField {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modalActions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.saveButton, .cancelButton, .deleteConfirmButton {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.saveButton, .deleteConfirmButton {
+  background: #28a745;
+  color: white;
+}
+
+.cancelButton {
+  background: #dc3545;
+  color: white;
+}
+
